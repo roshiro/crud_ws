@@ -39,19 +39,21 @@
   };
   
   exports.update = function(req, res) {
-    var presentation = req.body;
-    r.table('presentations').filter({}).update(presentation).
+    var presentation = req.body,
+        id = req.params.id;
+    r.table('presentations').get(id).update(presentation).
       run(connection, function(err, result) {
         if (err) throw err;
-        res.send(JSON.stringify({status: 'ok', location: '/presentations/'+result.generated_keys[0]}));
+        res.send(JSON.stringify({status: 'ok'}));
       });    
   };
   
   exports.delete = function(req, res) {
+    var id = req.params.id;
     r.table('presentations').get(id).delete().
       run(connection, function(err, result) {
           if (err) throw err;
-          res.send(JSON.stringify(result, null, 2));
+          res.send(JSON.stringify({status: 'ok'}));
       });
   };
 })();
