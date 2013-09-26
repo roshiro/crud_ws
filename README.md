@@ -7,28 +7,34 @@ crud_ws
 http://www.rethinkdb.com/docs/install/
 
 ### Setting Up
-
-Run the folowing command within the project folder
+Run the folowing command within the project folder.
+This will download the dependencies for the project.
 
     $ npm install
 
 ### Start up the server
+Open a terminal and start rethinkdb service
+
+    $ rethinkdb
+
+In another terminal, start the crud_ws server
+
     $ node server.js
 
 ### Testing the CRUD
 
 Creating
 
-    $ curl -X POST -H "Content-Type: application/json" -d '{"title":"How to use cUrl", "slides": [{"1":"test"}, {"2": "Another test"}]}' http://localhost:3000/presentations
+    $ curl -X POST -H "Content-Type: application/json" -d '{"title":"Hey, I'm using crud_ws", "slides": [{"1":"test"}, {"2": "Another test"}]}' http://localhost:3000/cruds
 
 Retrieving
 
-    $ curl -i -H "Accept: application/json" http://localhost:3000/presentations
+    $ curl -i -H "Accept: application/json" http://localhost:3000/cruds
  
 Updating
 
-    $ curl -X PUT -i -H "Accept: application/json" -d '{"title":"How to use cUrl"}' http://localhost:3000/presentations/c261810b-5e72-4cc5-8de5-31afb035079f
+    $ curl X PUT -i -H "Accept: application/json" -d 'title'='This is the updated title' http://localhost:3000/cruds/23cd6e44-d2b4-47d0-ba87-b788c496c82c
  
 Deleting
 
-    $ curl -X DELETE -i -H "Accept: application/json" http://localhost:3000/presentations/446a7bc3-d54c-4f1b-812f-b8daa9bc2016
+    $ curl -X DELETE -i -H "Accept: application/json" http://localhost:3000/cruds/446a7bc3-d54c-4f1b-812f-b8daa9bc2016
