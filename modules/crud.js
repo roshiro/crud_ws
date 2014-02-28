@@ -35,8 +35,6 @@
   
   exports.create = function(req, res) {
     var presentation = req.body;
-    console.log("cruds ", JSON.stringify(req.body));
-    var presentation = req.body;
     console.log(JSON.stringify(req.body));
     r.table('cruds').insert(presentation).
       run(connection, function(err, result) {
