@@ -6,10 +6,13 @@
     if (err) throw err;
     connection = conn;
     r.db('test').tableCreate('cruds').run(conn, function(err, res) {
-      if(err && err.name === "RqlRuntimeError") console.log("Table already exist. Skipping creation.");
-      else {
-        console.log(res);
-        throw err;
+      if (err){
+        if(err.name === "RqlRuntimeError") {
+            console.log("Table already exist. Skipping creation.");
+        } else {
+            console.log(res);
+            throw err;
+        }
       }
     });
   });
