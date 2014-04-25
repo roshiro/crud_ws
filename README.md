@@ -1,10 +1,9 @@
-crud_ws
+CRUD WS
 =======
 
 ## REST API for persisting any JSON data in RethinkDB
 
-### Install RethinkDB
-http://www.rethinkdb.com/docs/install/
+More details [here](http://www.frontendjournal.com/crud-webservice-for-your-json-data-in-node-js-and-rethinkdb/)
 
 ### Setting Up
 Run the folowing command within the project folder.
